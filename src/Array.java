@@ -14,6 +14,27 @@ public class Array {
     }
 
     public void insert(int item) {
+        resizeIfRequired();
+
+        // Add the new item at the end
+        items[count] = item;
+        count++;
+    }
+
+    public void insertAt(int item, int index) {
+        if (index < 0 || index > count)
+            throw new IllegalArgumentException();
+
+        resizeIfRequired();
+
+        for (int i = count - 1; i >= index; i--)
+            items[i + 1] = items[i];
+
+        items[index] = item;
+        count++;
+    }
+
+    private void resizeIfRequired() {
         // if the array is full, resize it
         if (items.length == count) {
             // create a new array (twice the size)
@@ -24,10 +45,6 @@ public class Array {
             // Set "items" to this new array
             items = newItems;
         }
-
-        // Add the new item at the end
-        items[count] = item;
-        count++;
     }
 
     public void removeAt(int index) {
