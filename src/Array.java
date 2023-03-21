@@ -40,4 +40,15 @@ public class Array {
 
         count--;
     }
+
+    // O(n)
+    public int indexOf(int item) {
+        // if we find item, we return index
+        // Otherwise, return -1
+        for (int i = 0; i < count; i++)
+            if (items[i] == item)
+                return i;
+
+        return -1;
+    }
 }

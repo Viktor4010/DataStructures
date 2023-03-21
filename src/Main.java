@@ -8,6 +8,8 @@ public class Main {
         numbers.insert(5);
 
         numbers.removeAt(3);
+        System.out.println(numbers.indexOf(1));
+        System.out.println(numbers.indexOf(100));
         numbers.print();
     }
 }
