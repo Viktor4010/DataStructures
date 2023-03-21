@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Array {
     private int[] items;
     // count represents total count of numbers in the array, not the size of the array.
@@ -88,5 +90,23 @@ public class Array {
             newItems[i] = items[count - i - 1];
 
         items = newItems;
+    }
+
+    public Array intersect(Array other) {
+        Array intersection = new Array(count);
+
+        for (int item : items)
+            if (other.indexOf(item) >= 0)
+                intersection.insert(item);
+
+        return intersection;
+    }
+
+    @Override
+    public String toString() {
+        return "Array{" +
+                "items=" + Arrays.toString(items) +
+                ", count=" + count +
+                '}';
     }
 }
