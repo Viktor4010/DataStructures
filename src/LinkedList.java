@@ -54,4 +54,20 @@ public class LinkedList {
     }
 
 
+    public int indexOf(int item) {
+        int index = 0;
+        Node current = first;
+        while (current != null) {
+            if (current.value == item)
+                return index;
+
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    public boolean contains(int item) {
+        return indexOf(item) != -1;
+    }
 }
