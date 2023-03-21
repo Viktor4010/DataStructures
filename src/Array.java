@@ -51,4 +51,17 @@ public class Array {
 
         return -1;
     }
+
+    public int max() {
+        // O(n): Because we have to iterate over
+        // the entire array to find the largest
+        // number. This number may be at the end
+        // of the array (worst case scenario).
+        int max = 0;
+        for (int item : items)
+            if (item > max)
+                max = item;
+
+        return max;
+    }
 }
