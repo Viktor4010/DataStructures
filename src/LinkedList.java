@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class LinkedList {
 
     private class Node {
@@ -46,6 +48,8 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
+
+        size++;
     }
 
 
@@ -69,5 +73,52 @@ public class LinkedList {
 
     public boolean contains(int item) {
         return indexOf(item) != -1;
+    }
+
+    public void removeFirst() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        if (first == last)
+            first = last = null;
+        else {
+            // save link to the second element
+            Node second = first.next;
+            // remove first element;
+            first.next = null;
+            // Update first element
+            first = second;
+        }
+
+        size--;
+    }
+
+    public void removeLast() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        if (first == last)
+            first = last = null;
+        else {
+            Node previous = getPrevious(last);
+            last = previous;
+            last.next = null;
+        }
+
+        size--;
+    }
+
+    private Node getPrevious(Node node) {
+        Node current = first;
+        while (current != null) {
+            if (current.next == node) return current;
+
+            current = current.next;
+        }
+        return null;
+    }
+
+    public int size() {
+        return size;
     }
 }
