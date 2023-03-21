@@ -33,6 +33,6 @@ public class Stack {
     @Override
     public String toString() {
         int[] content = Arrays.copyOfRange(items, 0, count);
-        return Arrays.toString(content);u
+        return Arrays.toString(content);
     }
 }
