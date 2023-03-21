@@ -6,9 +6,7 @@ public class Main {
         numbers.insert(30);
         numbers.insert(4);
         numbers.insert(5);
+        numbers.reverse();
         numbers.print();
-
-        int max = numbers.max();
-        System.out.println("Max number is: " + max);
     }
 }
