@@ -12,7 +12,7 @@ public class CharFinder {
 
         for (char c : str.toCharArray()) {
             Integer count = map.getOrDefault(c, 0);
-            map.put(c, count + 1);
+            map.put(c, ++count);
         }
 
         for (char ch : str.toCharArray()) {
